@@ -1,12 +1,12 @@
 import {
-  JupyterLab, JupyterLabPlugin
+  JupyterFrontEnd, JupyterFrontEndPlugin
 } from '@jupyterlab/application';
 
 import '../style/index.css';
 
 import './form';
 
-function registerFormExt(app: JupyterLab) {
+function registerFormExt(app: JupyterFrontEnd) {
   app.docRegistry.addFileType({
     name:'FORM',
     extensions:['frm'],
@@ -17,10 +17,10 @@ function registerFormExt(app: JupyterLab) {
 /**
  * Initialization data for the jupyterlab_form extension.
  */
-const extension: JupyterLabPlugin<void> = {
+const extension: JupyterFrontEndPlugin<void> = {
   id: 'jupyterlab_form',
   autoStart: true,
-  activate: (app: JupyterLab) => {
+  activate: (app: JupyterFrontEnd) => {
     registerFormExt(app);
     console.log('JupyterLab extension jupyterlab_form is activated!');
   }
