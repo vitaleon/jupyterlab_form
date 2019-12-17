@@ -97,7 +97,7 @@ CodeMirror.defineMode("form", (config: CodeMirror.EditorConfiguration, parserCon
         }
       } else if (ch == "#") {
         stream.eatWhile(/\w/);
-        var word = stream.current();
+        var word = stream.current().toLowerCase();
         if (contains(preprocessors, word)) {
           return "keyword";
         }
